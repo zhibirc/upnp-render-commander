@@ -1,6 +1,6 @@
 {
     "name": "upnp-render-commander",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "An UPnP/DLNA MediaRenderer client",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,8 +13,9 @@
         "concat-stream": "^1.4.8",
         "debug": "^2.1.3",
         "elementtree": "^0.1.6",
-        "network-address": "^1.0.0",
+        "fast-xml-parser": "^2.7.4",
         "ip": "^1.0.1",
+        "network-address": "^1.0.0",
         "parsexmlresponse": "^0.0.4"
     },
     "devDependencies": {

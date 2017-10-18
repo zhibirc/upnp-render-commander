@@ -30,6 +30,10 @@ elementtree@^0.1.6:
   dependencies:
     sax "1.1.4"
 
+fast-xml-parser@^2.7.4:
+  version "2.7.4"
+  resolved "http://10.118.48.2:4873/fast-xml-parser/-/fast-xml-parser-2.7.4.tgz#a652b0764e4c27245e69a6651c82cbdbb4ed2eaa"
+
 inherits@^2.0.3, inherits@~2.0.3:
   version "2.0.3"
   resolved "http://10.118.48.2:4873/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
