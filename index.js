@@ -127,7 +127,11 @@ MediaRendererClient.prototype.subscribe = function ( serviceId, callback ) {
 
     this.getDeviceDescription(( error, result ) => {
         if ( result ) {
-            let eventSubURL = result.services['urn:upnp-org:serviceId:' + serviceId].eventSubURL;
+            let eventSubURL;
+
+            if ( result.services['urn:upnp-org:serviceId:' + serviceId] ) {
+                eventSubURL = result.services['urn:upnp-org:serviceId:' + serviceId].eventSubURL;
+            }
 
             if ( eventSubURL ) {
                 self.subscriptions[serviceId] = new Subscription(
@@ -135,6 +139,8 @@ MediaRendererClient.prototype.subscribe = function ( serviceId, callback ) {
                     port,
                     result.services['urn:upnp-org:serviceId:' + serviceId].eventSubURL
                 ).on('message', callback);
+            } else {
+                callback('Subscription to ' + serviceId + ' failed!');
             }
         }
     });
