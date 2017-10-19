@@ -127,11 +127,15 @@ MediaRendererClient.prototype.subscribe = function ( serviceId, callback ) {
 
     this.getDeviceDescription(( error, result ) => {
         if ( result ) {
-            self.subscriptions[serviceId] = new Subscription(
-                url,
-                port,
-                result.services['urn:upnp-org:serviceId:' + serviceId].eventSubURL
-            ).on('message', callback);
+            let eventSubURL = result.services['urn:upnp-org:serviceId:' + serviceId].eventSubURL;
+
+            if ( eventSubURL ) {
+                self.subscriptions[serviceId] = new Subscription(
+                    url,
+                    port,
+                    result.services['urn:upnp-org:serviceId:' + serviceId].eventSubURL
+                ).on('message', callback);
+            }
         }
     });
 };
